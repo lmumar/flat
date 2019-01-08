@@ -55,10 +55,7 @@ func TestFlattenMap(t *testing.T) {
 	for i, test := range cases {
 		var inmap ResultMap
 		json.Unmarshal([]byte(test.test), &inmap)
-		got, err := FlattenMap(inmap)
-		if err != nil {
-			t.Errorf("%d: failed to unmarshal test: %v", i+1, err)
-		}
+		got := FlattenMap(inmap)
 		if !reflect.DeepEqual(got, test.want) {
 			t.Errorf("%d: mismatch, got: %v want: %v", i+1, got, test.want)
 		}

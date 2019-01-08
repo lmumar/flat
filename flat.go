@@ -24,7 +24,7 @@ func FlattenJSON(str string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	outmap, err := FlattenMap(inmap)
+	outmap := FlattenMap(inmap)
 	if err != nil {
 		return "", err
 	}
@@ -63,10 +63,10 @@ func FlattenJSON(str string) (string, error) {
 //      },
 //    }
 // }
-func FlattenMap(inmap ResultMap) (ResultMap, error) {
+func FlattenMap(inmap ResultMap) ResultMap {
 	outmap := make(ResultMap)
 	flatten("", inmap, outmap)
-	return outmap, nil
+	return outmap
 }
 
 func flatten(prefix string, inmap, outmap ResultMap) {
