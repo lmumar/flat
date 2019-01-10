@@ -1,7 +1,6 @@
 # flat
 flattens/unflattens map or JSON string
 
-You can flatten/unflatten a JSON string
 ```
 js := `{
   "name": {
